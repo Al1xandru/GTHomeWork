@@ -1,0 +1,38 @@
+CREATE DATABASE homeworks;
+USE homeworks;
+
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(128) NOT NULL,
+    lastname VARCHAR(128) NOT NULL,
+    job VARCHAR(64),
+    age INT CHECK (age BETWEEN 20 AND 100),
+    hascar CHAR(1) DEFAULT 'N',
+    username VARCHAR(128) UNIQUE NOT NULL
+);
+
+INSERT INTO employees (firstname, lastname, job, age, hascar, username) VALUES
+('John', 'Doe', 'Developer', 30, 'Y', 'jdoe'),
+('Alice', 'Smith', 'Manager', 25, 'N', 'asmith'),
+('Bob', 'Brown', 'Analyst', 35, 'Y', 'bbrown'),
+('Anna', 'Jones', 'Designer', 40, 'N', 'ajones'),
+('Tom', 'Taylor', 'Engineer', 50, 'Y', 'ttaylor');
+
+DROP TABLE employees;
+
+DROP DATABASE homeworks;
+
+CREATE DATABASE tasks;
+USE tasks;
+
+SELECT * FROM Staff
+WHERE age > 20 AND age < 40;
+
+SELECT firstname FROM Staff
+WHERE username LIKE 'A%' AND age > 20;
+
+SELECT firstname, lastname, age FROM Staff
+WHERE id IN (3, 7, 10);
+
+SELECT * FROM Staff
+WHERE firstname LIKE 'A%' AND lastname LIKE '%S';
